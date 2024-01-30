@@ -43,11 +43,7 @@ namespace ApplicationForm.Controllers {
                     RegisterViewModel.MapRegisterViewModelToApplicationRequest(model));
                 return Redirect("/info");
             }
-          
             return View("Index", model);
         }
-
-
-
     }
 }

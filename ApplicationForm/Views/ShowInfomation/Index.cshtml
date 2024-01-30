@@ -7,7 +7,7 @@
 <h1>Список </h1>
 <table class="table">
     @foreach (var u in Model.ApplicationRequests) {
-        <tr><td>@u.Deadline</td><td>@u.Description</td><td>@u.Email</td><td>@(u.Application != null ? u.Application.Name : "N/A")</td></tr>
+        <tr><td>@u.Title   </td<td>@u.Deadline</td><td>@u.Description</td><td>@u.Email</td><td>@(u.Application != null ? u.Application.Name : "N/A")</td></tr>
     }
 </table>
 @if (Model.PageViewModel.HasPreviousPage) {
