@@ -1,0 +1,34 @@
+﻿@using ApplicationForm.BL.Navigation;
+@model IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+</style>
+<h1>Список </h1>
+<table class="table">
+    @foreach (var u in Model.ApplicationRequests) {
+        <tr><td>@u.Deadline</td><td>@u.Description</td><td>@u.Email</td><td>@(u.Application != null ? u.Application.Name : "N/A")</td></tr>
+    }
+</table>
+@if (Model.PageViewModel.HasPreviousPage) {
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+       class="btn btn-outline-dark">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Назад
+    </a>
+}
+    @if (Model.PageViewModel.HasNextPage) {
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+       class="btn btn-outline-dark">
+        Вперед
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+}
+<div>
+    <form>
+        <a @Html.ActionLink("На главную", "Index", "Home", null, new { @class = "btn btn-primary" })></a>
+
+    </form>
+</div>

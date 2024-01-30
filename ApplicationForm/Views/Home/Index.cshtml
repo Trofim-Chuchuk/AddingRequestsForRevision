@@ -1,0 +1,36 @@
+﻿@using ApplicationForm.ViewModels;
+@model RegisterViewModel
+
+
+<div>
+    <form  method="post">
+        <p>
+            <label for="ApplicationId">Выберите модель:</label>
+            @Html.DropDownListFor(m => m.ApplicationId, ViewBag.ApplicationId as IEnumerable<SelectListItem>)
+        </p>
+      
+        <p>
+            <label>Название</label>
+            <input name="Title" value="@Model.Title" />       
+            <div class="error">@Html.ValidationMessageFor(m=>m.Title)</div>
+        </p>
+        <p>
+            <label>Описание</label>
+            <input name="Description" value="@Model.Description" />
+            <div class="error">@Html.ValidationMessageFor(m=>m.Description)</div>
+        </p>
+        <p>
+            <label>Deadline</label>
+            <input name="Deadline"  />
+            <div class="error">@Html.ValidationMessageFor(m=>m.Deadline)</div>
+        </p>
+
+        <p>
+            <label>Email</label>
+            <input name="Email" value="@Model.Email" />
+            <div class="error">@Html.ValidationMessageFor(m=>m.Email)</div>
+        </p>
+        
+        <button>Зарегистрироваться</button>
+    </form>
+</div>
